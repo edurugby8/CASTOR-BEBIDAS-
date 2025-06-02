@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Castor Bebidas</title>
+    <style>
+        /* Reset y base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f0e6d2;
+            line-height: 1.6;
+        }
+        a {
+            color: #f0e6d2;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #d4af37;
+        }
+        /* Contenedor general */
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+        /* Header */
+        header {
+            background-color: #000;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #d4af37;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #d4af37;
+            letter-spacing: 2px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        nav ul li a {
+            font-weight: 600;
+            font-size: 1rem;
+            padding: 5px 10px;
+            transition: color 0.3s ease;
+        }
+
+        /* Hero Section */
+        #inicio {
+            background: url('https://images.unsplash.com/photo-1506377247377-2a5b3b417ebb?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        #inicio h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #d4af37;
+            text-shadow: 0 0 10px #000;
+            margin-bottom: 15px;
+        }
+        #inicio p {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 30px;
+            color: #f0e6d2;
+            text-shadow: 0 0 8px #000;
+        }
+        #inicio a.btn {
+            background-color: #d4af37;
+            color: #121212;
+            padding: 15px 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(212, 175, 55, 0.7);
+            transition: background-color 0.3s ease;
+        }
+        #inicio a.btn:hover {
+            background-color: #b68f2b;
+            box-shadow: 0 7px 15px rgba(182, 143, 43, 0.9);
+        }
+
+        /* Sobre Nosotros */
+        #sobre-nosotros {
+            background-color: #1b1b1b;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        #sobre-nosotros h2 {
+            font-size: 2.8rem;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        #sobre-nosotros p {
+            max-width: 900px;
+            margin: auto;
+            font-size: 1.2rem;
+            color: #f0e6d2;
+            line-height: 1.8;
+        }
+
+        /* Catálogo sin imágenes */
+        #catalogo {
+            background: url('https://images.unsplash.com/photo-1524594157365-57edbf84de00?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+            padding: 60px 20px;
+            color: #f0e6d2;
+            text-align: center;
+        }
+        #catalogo h2 {
+            font-size: 2.8rem;
+            margin-bottom: 40px;
+            color: #d4af37;
+            font-weight: 700;
+            text-shadow: 0 0 10px #000;
+        }
+        .productos {
+            max-width: 700px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        .producto {
+            background: rgba(0,0,0,0.65);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(212,175,55,0.7);
+            transition: background-color 0.3s ease;
+        }
+        .producto:hover {
+            background: rgba(212,175,55,0.15);
+        }
+        .producto h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .producto p {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            font-weight: 700;
+            padding: 10px 25px;
+            border-radius: 30px;
+            display: inline-block;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 5px 10px rgba(37, 211, 102, 0.7);
+        }
+        .btn-whatsapp:hover {
+            background-color: #1ebe56;
+            box-shadow: 0 7px 15px rgba(30, 190, 86, 0.9);
+        }
+
+        /* Contacto */
+        #contacto {
+            background-color: #1b1b1b;
+            padding: 50px 20px;
+            text-align: center;
+            color: #f0e6d2;
+        }
+        #contacto h2 {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
+            color: #d4af37;
+            font-weight: 700;
+        }
+        #contacto p {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        #contacto a {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 20px;
+            text-align: center;
+            color: #d4af37;
+            font-weight: 600;
+            border-top: 2px solid #d4af37;
+            margin-top: 40px;
+        }
+        footer a {
+            color: #d4af37;
+            margin: 0 10px;
+            font-weight: 700;
+        }
+        footer a:hover {
+            color: #fff;
+        }
+
+        /* Botón flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 5px 10px rgba(37, 211, 102, 0.7);
+            z-index: 10000;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .whatsapp-float:hover {
+            background-color: #1ebe56;
+            box-shadow: 0 7px 15px rgba(30, 190, 86, 0.9);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            #inicio h1 {
+                font-size: 2.5rem;
+            }
+            #inicio p {
+                font-size: 1.2rem;
+            }
+            nav ul {
+                gap: 15px;
+            }
+            .productos {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Castor Bebidas</div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#catalogo">Catálogo</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h1>Destapá tu felicidad</h1>
+        <p>Brindá con carácter. Disfrutá con estilo.</p>
+        <a href="#catalogo" class="btn">Ver productos</a>
+    </section>
+
+    <section id="sobre-nosotros" class="container">
+        <h2>Sobre Nosotros</h2>
+        <p>
+            Soy un joven emprendedor apasionado por el mundo de las bebidas. Creo firmemente que una buena copa puede transformar un momento, unir personas y crear recuerdos inolvidables. Por eso nace Castor Bebidas, con el deseo de compartir esta pasión y acercar a cada cliente una experiencia única, auténtica y de calidad.
+        </p>
+    </section>
+
+    <section id="catalogo">
+        <h2>Catálogo de Bebidas</h2>
+        <div class="productos">
+            <div class="producto">
+                <h3>Vino Tinto Reserva</h3>
+                <p>Precio estimado: $2700 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20el%20Vino%20Tinto%20Reserva" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <h3>Vino Blanco Selección</h3>
+                <p>Precio estimado: $3200 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20el%20Vino%20Blanco%20Selección" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <h3>Champagne Brut</h3>
+                <p>Precio estimado: $4500 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20el%20Champagne%20Brut" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <h3>Cerveza Artesanal</h3>
+                <p>Precio estimado: $900 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20la%20Cerveza%20Artesanal" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <h3>Destilado Premium</h3>
+                <p>Precio estimado: $5500 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20el%20Destilado%20Premium" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+            <div class="producto">
+                <h3>Aperitivo Tradicional</h3>
+                <p>Precio estimado: $1200 ARS</p>
+                <a href="https://wa.me/1127275081?text=Hola,%20quiero%20comprar%20el%20Aperitivo%20Tradicional" target="_blank" class="btn-whatsapp" rel="noopener noreferrer">Comprar por WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Contacto</h2>
+        <p>WhatsApp: <a href="https://wa.me/1127275081" target="_blank" rel="noopener noreferrer">1127275081</a></p>
+        <p>Instagram: <a href="https://www.instagram.com/castor.bebidas" target="_blank" rel="noopener noreferrer">@castor.bebidas</a></p>
+        <p>Email: <a href="mailto:gonzaloecastilla@gmail.com">gonzaloecastilla@gmail.com</a></p>
+    </section>
+
+    <footer>
+        Castor Bebidas – Celebrá con lo mejor
+        <br />
+        <a href="#inicio">Inicio</a> |
+        <a href="#catalogo">Tienda</a> |
+        <a href="https://www.instagram.com/castor.bebidas" target="_blank" rel="noopener noreferrer">Instagram</a> |
+        <a href="#contacto">Contacto</a>
+    </footer>
+
+    <!-- Botón flotante WhatsApp -->
+    <a href="https://wa.me/1127275081" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
+        <svg style="width:28px; height:28px;" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M20.52 3.48A11.77 11.77 0 0012 0C5.372 0 0 5.372 0 12a11.94 11.94 0 002.11 6.25L0 24l5.91-2.16A11.92 11.92 0 0012 24c6.627 0 12-5.372 12-12a11.77 11.77 0 00-3.48-8.52zm-1.514 11.385c-.206.58-1.182 1.11-1.59 1.18-.407.07-.89.1-1.75-.22-2.376-1.033-3.92-3.67-4.034-3.843-.11-.17-.9-1.348-.9-2.57 0-1.22.648-1.71.878-1.946.23-.237.5-.294.68-.294.175 0 .37 0 .535.018.173.017.51-.068.775.52.27.59.91 2.04.986 2.19.075.148.125.33.038.535-.09.205-.13.332-.255.51-.127.177-.27.39-.386.53-.13.15-.264.32-.113.625.15.304.666 1.103 1.43 1.78.985.91 1.75 1.2 2.016 1.33.263.135.416.114.57-.07.154-.183.662-.77.833-1.04.17-.27.34-.23.58-.138.236.095.74.294.85.345.11.052.18.08.205.127.025.045.025.262.018.38z"/></svg>
+    </a>
+</body>
+</html>
